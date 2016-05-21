@@ -81,7 +81,7 @@ public class MipMapInfo {
         info.properties = properties;
         info.name = ee.toString();
         info.exportIndex = ee.getIndex();
-        readUnk(buffer, up.getVersion(), up.getLicensee());
+        readUnk(buffer, up.getVersion(), up.getLicense());
         info.offsets = new int[getCompactInt(buffer)];
         info.sizes = new int[info.offsets.length];
 

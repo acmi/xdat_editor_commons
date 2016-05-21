@@ -5,6 +5,7 @@ import acmi.l2.clientmod.io.DataInputStream;
 import acmi.l2.clientmod.l2resources.texture.Img;
 import acmi.l2.clientmod.l2resources.texture.MipMapInfo;
 import acmi.l2.clientmod.l2resources.texture.Split9;
+import acmi.l2.clientmod.unreal.Environment;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Border;
@@ -68,7 +69,7 @@ public class L2Resources {
         if (images.containsKey(name))
             return;
 
-        getEnvironment().getExportEntry(name, entry -> MipMapInfo.isTexture(entry.getFullClassName()))
+        getEnvironment().getExportEntry(name, MipMapInfo::isTexture)
                 .ifPresent(texture -> MipMapInfo.getInfo(texture)
                         .ifPresent(info -> {
                             imageSplit9Info.put(name, info.properties.getSplit9());
