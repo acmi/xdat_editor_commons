@@ -5,5 +5,5 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.codehaus.groovy', name: 'groovy', version: "2.4.6"
+    compile group: 'org.codehaus.groovy', name: 'groovy', version: "2.4.7"
 }
