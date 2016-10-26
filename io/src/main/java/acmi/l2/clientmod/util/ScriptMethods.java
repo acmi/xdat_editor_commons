@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 public class ScriptMethods {
     public static Named getAt(List<? extends Named> list, String name) {
         return list.parallelStream()
-                .filter(e -> e.getName().equalsIgnoreCase(name))
+                .filter(e -> String.valueOf(e.getName()).equalsIgnoreCase(String.valueOf(name)))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(name + " not found"));
     }
