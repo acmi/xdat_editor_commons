@@ -25,10 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Pair;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ScriptMethods {
@@ -118,5 +115,9 @@ public class ScriptMethods {
         return '[' + properties.stream()
                 .map(p -> includeNames ? p.getKey() + "=" + p.getValue() : p.getValue())
                 .collect(Collectors.joining("\t")) + ']';
+    }
+
+    public static void removeByName(Collection<? extends Named> collection, String name) {
+        collection.removeIf(o -> Objects.nonNull(o) && Objects.equals(o.getName(), name));
     }
 }
